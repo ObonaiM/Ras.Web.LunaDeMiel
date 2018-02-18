@@ -14,7 +14,7 @@ namespace Ras.Web.LuneDeMiel.Controllers
         // GET: Knowledge
         public ActionResult Index()
         {
-            // test
+            // てすと
             return View();
         }
     }
