@@ -1,0 +1,113 @@
+﻿
+@{
+	ViewBag.Title = "はちみつ 一括編集";
+}
+
+<div class="view-name">はちみつ 一括編集</div>
+<div class="main">
+	<div class="content">
+		<div style="width: 300px; margin: 10px 10px 10px auto;">
+			<div style="text-align:left">
+				一括登録ファイルのアップロード
+			</div>
+			<input type="file" id="bulkEditFile" style="display:none;" onchange="fileChange($(this), 'image2', '#fake_input_file')">
+			<input id="fake_input_file" readonly type="text" value="選択してください。" onClick="$('#bulkEditFile').click();">
+			<input type="button" value="アップロード" />
+		</div>
+		<table class="listTable" style="margin-left: auto; margin-right: auto; width: 90%;">
+			<tr>
+				<th>商品名</th>
+				<th>値段</th>
+				<th>分類</th>
+				<th>養蜂家</th>
+				<th>地域</th>
+				<th>花の名前</th>
+				<th>味の違い</th>
+				<th>画像</th>
+			</tr>
+			<tr>
+				<td><input type="text" value="G オレンジ"></td>
+				<td><input type="number" name="example" value="1250" style="width:50px">円</td>
+				<td>
+					<select>
+						<option selected>フルーツ</option>
+						<option>草花</option>
+						<option>樹木</option>
+						<option>ハーブ</option>
+						<option>百花蜜</option>
+						<option>ナッツ</option>
+						<option>甘露蜜</option>
+					</select>
+				</td>
+				<td><input type="text" size="15" value="リャピス・ニコラオス"></td>
+				<td><input type="text" size="10" value="ギリシャ"></td>
+				<td><input type="text" size="15" value="オレンジ"></td>
+				<td><textarea rows="3" cols="30" onscroll="true" style="resize: vertical">オレンジを煮詰めたような濃厚な甘さ。</textarea></td>
+				<td>
+					<img src="" id="image1" style="width: 30px; height: 30px;"><br />
+					<input type="file" id="file1" style="display:none;" onchange="fileChange($(this), 'image1', '#fake_input_file1')">
+					<input type="button" value="選択..." onClick="$('#file1').click();">
+					<input id="fake_input_file2" readonly type="text" value="" onClick="$('#file1').click();">
+				</td>
+			</tr>
+			<tr>
+				<td><input type="text" value="G オレンジ"></td>
+				<td><input type="number" name="example" value="1250" style="width:50px">円</td>
+				<td>
+					<select>
+						<option selected>フルーツ</option>
+						<option>草花</option>
+						<option>樹木</option>
+						<option>ハーブ</option>
+						<option>百花蜜</option>
+						<option>ナッツ</option>
+						<option>甘露蜜</option>
+					</select>
+				</td>
+				<td><input type="text" size="15" value="リャピス・ニコラオス"></td>
+				<td><input type="text" size="10" value="ギリシャ"></td>
+				<td><input type="text" size="15" value="オレンジ"></td>
+				<td><textarea rows="3" cols="30" onscroll="true" style="resize: vertical">オレンジを煮詰めたような濃厚な甘さ。</textarea></td>
+				<td>
+					<img src="" id="image2" style="width: 30px; height: 30px;"><br />
+					<input type="file" id="file2" style="display:none;" onchange="fileChange($(this), 'image2', '#fake_input_file2')">
+					<input type="button" value="選択..." onClick="$('#file2').click();">
+					<input id="fake_input_file2" readonly type="text" value="" onClick="$('#file2').click();">
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="bottombuttonArea">
+	<input type="button" value="登録" style="margin: 10px auto; " class="successbutton">
+</div>
+
+<script>
+	function linkAction(url)
+	{
+		location.href = url;
+	}
+
+	function fileChange(file, imageId, textId)
+	{
+		$(textId).val(getFileName(file));
+		var image = document.getElementById(imageId);
+		previewFile(imageId, file);
+	}
+
+	function previewFile(imageId, file) {
+		var preview = document.getElementById(imageId);
+		var reader = new FileReader();
+
+		reader.onloadend = function () {
+			preview.src = reader.result;
+		}
+
+		reader.readAsDataURL(file[0].files[0]);
+	}
+
+	function getFileName(file)
+	{
+		return file[0].files[0].name;
+	}
+</script>

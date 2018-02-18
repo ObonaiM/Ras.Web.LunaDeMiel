@@ -1,0 +1,73 @@
+﻿@using PagedList.Mvc;
+@using Ras.Web.LuneDeMiel.ViewModels.Gift
+@model GiftListViewModel
+@{
+    ViewBag.Title = "ギフト一覧";
+}
+
+<div class="view-name">ギフト一覧</div>
+<div class="searchCondition">
+    <table style="margin-right: auto; margin-left: auto;">
+        <tr>
+            <th>商品名</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCondition.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>内訳商品名</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCondition.ProductName)を含む
+            </td>
+        </tr>
+        <tr>
+            <th>内訳商品原産国</th>
+            <td>
+                @Html.DropDownListFor(m => m.SearchCondition.CountryId, Model.SearchCondition.CountrySelectList)
+            </td>
+        </tr>
+        <tr>
+            <th>内訳商品地域</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCondition.Municipal)を含む
+            </td>
+        </tr>
+        <tr>
+            <th>値段</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCondition.PriceMin, new { type = "number", style = "width: 80px;" })円
+                ～ @Html.TextBoxFor(m => m.SearchCondition.PriceMax, new { type = "number", style = "width: 80px;" })円
+            </td>
+        </tr>
+    </table>
+    <div class="buttonCenter">
+        <button class="normal" type="button">検索</button>
+    </div>
+</div>
+
+<div class="main">
+    <div class="content">
+        @Html.PagedListPager(Model.Gifts, page => Url.RouteUrl(new { @page = page }))
+        <table class="listTable"
+               style="margin-left: auto; margin-right: auto; width: 90%">
+            <tr>
+                <th>商品名</th>
+                <th>値段</th>
+                <th>内訳</th>
+                <th>画像</th>
+            </tr>
+            @{ 
+                foreach (var gift in Model.Gifts)
+                {
+                    <tr>
+                        <td><a href="">@gift.Name</a></td>
+                        <td>@gift.PriceLabel</td>
+                        <td>@gift.ItemsLabel</td>
+                        <td>To Be Continued</td>
+                    </tr>
+                }
+            }
+        </table>
+        @Html.PagedListPager(Model.Gifts, page => Url.RouteUrl(new { @page = page }))
+    </div>
+</div>

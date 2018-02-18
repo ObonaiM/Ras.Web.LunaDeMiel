@@ -1,0 +1,112 @@
+﻿@using PagedList.Mvc;
+@using Ras.Web.LuneDeMiel.ViewModels.Mariage;
+
+@model MariageListViewModel
+
+@{
+    ViewBag.Title = "食べ合わせ一覧";
+}
+
+<style>
+    .searchCondition table th {
+        width: 100px;
+    }
+
+    .searchCondition table td {
+        width: 300px;
+    }
+</style>
+
+<div class="view-name">食べ合わせ一覧</div>
+<div class="searchCondition">
+    <table style="margin-right:auto; margin-left:auto;">
+        <tr>
+            <th rowspan="3">使った商品</th>
+            <th>商品名</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCond.ProductName)
+            </td>
+        </tr>
+        <tr>
+            <th>はちみつ分類</th>
+            <td>
+                @Html.DropDownListFor(m => m.SearchCond.HoneyCategory, Model.HoneyCategories)
+            </td>
+        </tr>
+        <tr>
+            <th>産地</th>
+            <td>
+                <div>
+                    <span style="display:inline-block; width:60px;">（国）</span>
+                    @Html.DropDownListFor(m => m.SearchCond.Country, Model.Countries)
+                </div>
+                <div>
+                    <span style="display:inline-block; width:60px;">（地域）</span>
+                    @Html.TextBoxFor(m => m.SearchCond.MunicipalName)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">食品名</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCond.FoodName)
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">説明</th>
+            <td>
+                @Html.TextBoxFor(m => m.SearchCond.Content)
+            </td>
+        </tr>
+    </table>
+    <div class="searchButton">
+        <button class="normal" type="button">検索</button>
+    </div>
+</div>
+
+<div class="main">
+    <div class="content">
+        @Html.PagedListPager(Model.Rows, page => Url.Action("Index", "Mariage", new { page = page }))
+        <table class="listTable"
+               style="margin-left: auto; margin-right: auto; width: 95%">
+            <tr>
+                <th width="200">画像</th>
+                <th>商品名</th>
+                <th>分類</th>
+                <th>地域</th>
+                <th>食品名</th>
+                <th>説明</th>
+                <th>感想・コメント</th>
+                <th width="80px"></th>
+            </tr>
+            @foreach (var row in Model.Rows)
+            {
+                <tr>
+                    <td>
+                        <img style="width:30%; height:30%;" src="~/Content/Images/honey01.jpg" />
+                        @*<img src="data:image/jpg;base64,[base64エンコードした画像データ]" />*@
+                    </td>
+                    <td>@row.ProductName</td>
+                    <td>@row.HaneyCategory</td>
+                    <td>@row.Area</td>
+                    <td>@row.FoodName</td>
+                    <td>@row.Content</td>
+                    <td>@row.Comment</td>
+                    <td>
+                        <button class="normal" type="button" style="padding: 5px 12px;" onclick="detailView(@(row.Id));">詳細</button>
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.PagedListPager(Model.Rows, page => Url.Action("Index", "Mariage", new { page = page }))
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        @* 詳細画面に遷移 *@
+        function detailView(id) {
+            link('/Mariage/Detail?id=' + id);
+        }
+    </script>
+}

@@ -1,0 +1,89 @@
+﻿
+@{
+	ViewBag.Title = "はちみつ 編集";
+}
+
+<style>
+	input[type="text"] {
+		width: 300px;
+	}
+</style>
+
+<div class="view-name">はちみつ編集</div>
+<div class=main>
+	<div class="content">
+		<div class="modifiable" style="float:left;">
+			<img src="~/Content/Images/honey01.jpg" />
+			<span class="word">画像を変更する</span>
+		</div>
+		<div>
+			<table class="info">
+				<tr>
+					<th>商品名</th>
+					<td>
+						<input type="text" value="タスマニア レザーウッド">
+					</td>
+				</tr>
+				<tr valign="top">
+					<th>値段</th>
+					<td>
+						<div>
+							<input type="text" style="text-align:right;width:100px;">g
+							<input type="text" style="text-align:right;width:150px;">円
+							<button class="normal" type="button" style="padding: 5px 12px;">追加</button>
+						</div>
+						<div style="margin-top:2px">
+							<input type="text" value="125" style="text-align:right;width:100px;">g
+							<input type="text" value="2,000" style="text-align:right;width:150px;">円
+							<button class="delete" type="button" style="padding: 5px 12px;">削除</button>
+						</div>
+						<div style="margin-top:2px">
+							<input type="text" value="250" style="text-align:right;width:100px;">g
+							<input type="text" value="3,700" style="text-align:right;width:150px;">円
+							<button class="delete" type="button" style="padding: 5px 12px;">削除</button>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>八分類</th>
+					<td>
+						<select>
+							<option>樹木</option>
+							<option>百花蜜</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>養蜂家</th>
+					<td>
+						<input type="text" value="ロバート・チャールズ氏">
+					</td>
+				</tr>
+				<tr>
+					<th>採れた場所</th>
+					<td>
+						<input type="text" value="オーストラリア タスマニア島・ターカイン">
+					</td>
+				</tr>
+				<tr>
+					<th>花の名前</th>
+					<td>
+						<input type="text" value="‐">
+					</td>
+				</tr>
+				<tr valign="top">
+					<th>特徴</th>
+					<td>
+						<textarea rows="5" style="max-width:100%;width:100%;">「はちみつの香水」とも言えるほどの幻想的で華やかな香り。まずはそのままで。バゲット、紅茶にも。&#13;コクのある甘みの中に樹木を思わせる清涼感。力強く華やかな余韻も印象的です。&#13;花をつけるまでに70年以上、蜜を出すまでに100年かかる植物。100年待ったはちみつは、香水のようにエレガントです。</textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div style="text-align:center;">
+	<span>
+		<button class="success" type="button">変更</button>
+		<button class="normal" type="button">取消</button>
+	</span>
+</div>

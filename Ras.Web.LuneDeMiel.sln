@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ras.Web.LuneDeMiel", "Ras.Web.LuneDeMiel\Ras.Web.LuneDeMiel.csproj", "{C1F30B5D-564B-4382-B1BA-5D651955AF08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ras.Common", "Ras.Common\Ras.Common.csproj", "{F4C00291-9641-4D46-9AFB-E20E821E9F48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1F30B5D-564B-4382-B1BA-5D651955AF08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F30B5D-564B-4382-B1BA-5D651955AF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F30B5D-564B-4382-B1BA-5D651955AF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F30B5D-564B-4382-B1BA-5D651955AF08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C00291-9641-4D46-9AFB-E20E821E9F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C00291-9641-4D46-9AFB-E20E821E9F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C00291-9641-4D46-9AFB-E20E821E9F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C00291-9641-4D46-9AFB-E20E821E9F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

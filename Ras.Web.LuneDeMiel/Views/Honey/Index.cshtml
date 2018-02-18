@@ -1,0 +1,106 @@
+﻿@using PagedList.Mvc;
+@using Ras.Web.LuneDeMiel.ViewModels.Honey;
+
+@model HoneyListViewModel
+@{
+	ViewBag.Title = "はちみつ 一覧";
+}
+
+<div class="view-name">はちみつ一覧</div>
+<div class="searchCondition">
+	<table style="margin-right: auto; margin-left: auto;">
+		<tr>
+			<th>商品名</th>
+			<td><input type="text" size="20" value="おいしいはちみつ"></td>
+		</tr>
+		<tr>
+			<th>花の名前</th>
+			<td><input type="text" size="20" value="いろんな花"></td>
+		</tr>
+		<tr>
+			<th>地域</th>
+			<td><input type="text" size="20" value="イギリス"></td>
+		</tr>
+		<tr>
+			<th>値段</th>
+			<td>
+				<input type="number" min="0" max="99999" size="5" value="">円
+				～ <input type="number" min="0" max="99999" size="5" value="1300">円
+			</td>
+		</tr>
+		<tr>
+			<th>分類</th>
+			<td>
+				<select name="example">
+					<option value=""></option>
+					<option value="1">フルーツ</option>
+					<option value="2">草花</option>
+					<option value="3">樹木</option>
+					<option value="4">ハーブ</option>
+					<option value="5">百花蜜</option>
+					<option value="6">ナッツ</option>
+					<option value="7">甘露蜜</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div class="searchButton">
+		<button class="normal" type="button">検索</button>
+	</div>
+</div>
+
+<div class="main">
+	<div class="content">
+		@* 一括編集 *@
+		@Html.PagedListPager(Model.Honeys, page => Url.RouteUrl(new { @page = page }))
+		<div class="bulkEditButtton">
+			<button class="normal" type="button" onclick="bulkEditView()">一括編集する</button>
+		</div>
+		<table class="listTable"
+				style="margin-left: auto; margin-right: auto; width: 95%">
+			<tr>
+				<th>商品名</th>
+				<th>値段</th>
+				<th>地域</th>
+				<th>花の名前</th>
+				<th>画像</th>
+				<th width="80px"></th>
+			</tr>
+			@{
+				foreach (var honey in Model.Honeys)
+				{
+					<tr>
+						<td><a href="@Url.Action("Detail", "Honey")" />@honey.Name</td>
+						<td>
+							@{
+								foreach (var sizePrice in honey.SizePriceDictionary)
+								{
+									<div style="margin: 5px 0px;">
+										@Html.Raw("" + sizePrice.Value.ToString("N") + "円 / " + sizePrice.Key + "g </span>")
+									</div>
+								}
+							}
+						</td>
+						<td>@honey.Municipal</td>
+						<td>@honey.FlowerName</td>
+						<td><img style="width: 50px; height: 50px;" src="~/Content/Images/honey01.jpg" /></td>
+						<td><button class="normal" type="button" style="padding: 5px 12px;" onclick="detailView()">詳細</button></td>
+					</tr>
+								}
+			}
+		</table>
+		@Html.PagedListPager(Model.Honeys, page => Url.RouteUrl(new { @page = page }))
+	</div>
+</div>
+<script>
+	@* 詳細画面に遷移 *@
+	function detailView()
+	{
+		link('@Url.Action("Detail", "Honey")');
+	}
+
+	@* 一括編集画面に遷移 *@
+	function bulkEditView() {
+		link('@Url.Action("BulkEdit", "Honey")');
+	}
+</script>

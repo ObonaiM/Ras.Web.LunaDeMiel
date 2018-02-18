@@ -1,0 +1,275 @@
+﻿/* 
+    全画面共通
+*/
+div.main{
+	width: 100%;
+	height: 100%;
+}
+
+div.main>div.content{
+	margin: 0px auto 50px auto;
+	width: 100%;
+	border: 5px double #FF8000;
+	background-color: #FFFFa0
+}
+
+div.view-name{
+	margin: 10px;
+	font-size: 20pt;
+}
+
+div.view-name:before{
+	content: url("Images/honey_icon01.png");
+	position: relative;
+	top: 7px;
+}
+
+td.item-name:before{
+	content: url("Images/honey_icon02.png");
+}
+
+/* 
+    全画面共通 ボタン
+*/
+button.normal {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 30px;
+	background-color: #C9C9C9;
+	color: #000;
+	border-style: none;
+	margin: 0px 5px;
+}
+button.normal:hover {
+	cursor: pointer;
+	background-color: #E5E5E5;
+}
+button.normal:active {
+	background-color: #AFAFAF;
+}
+
+button.success {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 30px;
+	background-color: #0097DB;
+	color: #fff;
+	border-style: none;
+	margin: 0px 5px;
+}
+button.success:hover {
+	cursor: pointer;
+	background-color: #00B9EF;
+}
+button.success:active {
+	background-color: #005982;
+}
+
+button.delete {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 30px;
+	background-color: #ff463d;
+	color: #fff;
+	border-style: none;
+	margin: 0px 5px;
+}
+button.delete:hover {
+	cursor: pointer;
+	background-color: #FF706B;
+}
+button.delete:active {
+	background-color: #D10600;
+}
+
+/* 
+    ヘッダ
+*/
+.headerMenu{
+	width:100%;
+	height:30px;
+	vertical-align:middle;
+	border: dotted 1px #c0c0c0;
+	background-color: #FFCC66;
+	margin:0px 0px 0px 0px;
+}
+
+.headerMenu .headerMenuCell{
+	width:150px;
+	height: 100%;
+	font-size: 12pt;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	transition: all .3s;
+}
+
+.headerMenu .headerMenuCell:HOVER{
+	letter-spacing: 5px;
+	background-color: #ff9932;
+	transition: all .1s;
+}
+
+
+/* 
+    リスト
+*/
+table.listTable{
+	border: medium solid #c0c0c0;
+	background-color: white;
+}
+
+.listTable th{
+	border: solid 1px #c0c0c0;
+	background-color: #E5E5E5;
+	padding:10px;
+}
+
+.listTable td{
+	border: dotted 1px #c0c0c0;
+	padding:10px;
+}
+
+file {
+	font-size: small;
+	width:100%;
+}
+
+
+.bottombuttonArea{
+	width: 100%;
+	text-align: center;
+}
+
+/* 勉強機能共通 */
+.questionText{
+	width:80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* obonai */
+div.searchCondition{
+	margin-left : auto;
+	margin-right : auto;
+	margin-bottom : 20px;
+	padding:20px 20px;
+	width: 600px;
+	line-height: 150%;
+	border: 5px double #FF8000;
+}
+
+div.searchCondition table{
+}
+
+div.searchCondition th{
+	width:150px;
+	height:30px;
+	border-bottom: thin solid #c0c0c0;
+}
+
+div.searchCondition td{
+	width:250px;
+	height:30px;
+	border-bottom: thin solid #c0c0c0;
+}
+
+div.searchCondition .searchButton{
+	margin-top:10px;
+	text-align: center;
+}
+
+div.bulkEditButtton{
+	margin:0px 10px 5px 0px;
+	text-align: right;
+}
+
+/* haraki */
+/* 編集画面共通 */
+div.modifiable{
+	background-color: #000;
+	position: relative;
+}
+
+div.modifiable>img{
+	display: block;
+}
+
+div.modifiable>.word{
+	color: #FFF;
+	text-align: center;
+	font-size: 12pt;
+	font-weight: bold;
+	white-space: nowrap;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	visibility: hidden;
+}
+
+div.modifiable:hover>img{
+	opacity: 0.3;
+}
+
+div.modifiable:hover>.word{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	visibility:visible;
+}
+
+table.info {
+	font-size: 14px;
+	width: 80%;
+	border-collapse:separate;
+	border-spacing:2px;
+}
+
+table.info th, table.info td {
+	padding: 10px;
+}
+
+table.info th {
+	background: #ffc040;
+	color: #FFF;
+	text-align: left;
+	width: auto;
+	overflow: visible;
+	position: relative;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+table.info th:before{
+	content: url("Images/honey_icon02.png");
+}
+
+table.info th:after {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #ffc040;
+	border-width: 7px;
+	margin-top: -7px;
+}
+
+table.info td {
+	background: #ffe080;
+}
+
